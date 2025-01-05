@@ -3,8 +3,9 @@ on:
   issues:
      types: [opened]
 jobs:
-  comment-with-action:
-    runs_on: ubuntu-latest
-    steps:
-      - name: "dump github"
-        run: echo '${{ toJSON(github.event) }}' | jq
+  comment:
+     runs_on: ubuntu-latest
+     steps:
+       - name: "dump github"
+         run: echo '${{ toJSON(github.event) }}' | jq
+         shell: bash
