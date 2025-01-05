@@ -7,7 +7,7 @@ on:
       branches:
            - main
 jobs:
-  hello:
+   hello:
      runs-on: ubuntu-latest
      steps:
        - uses: actions/checkout@v2
@@ -15,8 +15,8 @@ jobs:
          run: echo "hello world"
          shell: bash
    good_bye:
-       runs-on: ubuntu-latest
-       steps:
-         - name: goodbye_world
-           run: echo "goodbye world"
-           shell: bash
+      runs-on: ubuntu-latest
+      steps:
+       -  name: goodbye_world
+          run: echo "goodbye world"
+          shell: bash
