@@ -1,23 +1,27 @@
 name: create comment on newly created issue
 on:
   issues:
-     types: [opened]
+    types: [opened]
+
 jobs:
   comment-with-action:
-     runs-on: ubuntu-latest
-     steps:
-       - name: "dump the github"
-         run: echo '${{ toJSON(github.event) }}' | jq
-         shell: bash
-       - name: Create comment
-         uses: peter-evans/create-or-update-comment@v4
-         with:
+    runs-on: ubuntu-latest
+    permissions: # Ensure proper permissions are set
+      issues: write
+
+    steps:
+      - name: "Dump the GitHub event"
+        run: echo '${{ toJSON(github.event) }}' | jq
+        shell: bash
+
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v4
+        with:
           issue-number: ${{ github.event.issue.number }}
           body: |
             This is a multi-line test comment
-            This is a multi-line test comment
-            - this is github workflow
+            - this is a GitHub workflow
             - Created by nivedita
-
+            
             [1]: https://github.com/peter-evans/create-or-update-comment
           reactions: '+1'
