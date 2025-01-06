@@ -20,3 +20,15 @@ jobs:
        -  name: goodbye_world
           run: echo "goodbye world"
           shell: bash
+   step3:
+       runs-on: ubuntu-latest
+       steps:
+         - name: hi
+           run: echo "hi"
+           shell: bash
+   step4:
+        runs-on: ubuntu-latest
+        steps: 
+           - name: caze-lab
+             run: echo "this is caze-lab"
+             shell: bash
